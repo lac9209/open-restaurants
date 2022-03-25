@@ -1,0 +1,1141 @@
+"","Var1","Var2","Freq"
+"1","Food Establishment","",23
+"2","Illegal Parking","",574
+"3","Noise - Commercial","",68
+"4","Noise - Street/Sidewalk","",181
+"5","Rodent","",51
+"6","Food Establishment","00083",1
+"7","Illegal Parking","00083",2
+"8","Noise - Commercial","00083",0
+"9","Noise - Street/Sidewalk","00083",1
+"10","Rodent","00083",7
+"11","Food Establishment","10000",2
+"12","Illegal Parking","10000",2
+"13","Noise - Commercial","10000",0
+"14","Noise - Street/Sidewalk","10000",59
+"15","Rodent","10000",2
+"16","Food Establishment","10001",136
+"17","Illegal Parking","10001",479
+"18","Noise - Commercial","10001",388
+"19","Noise - Street/Sidewalk","10001",368
+"20","Rodent","10001",156
+"21","Food Establishment","10002",148
+"22","Illegal Parking","10002",858
+"23","Noise - Commercial","10002",1821
+"24","Noise - Street/Sidewalk","10002",1158
+"25","Rodent","10002",289
+"26","Food Establishment","10003",217
+"27","Illegal Parking","10003",488
+"28","Noise - Commercial","10003",1069
+"29","Noise - Street/Sidewalk","10003",723
+"30","Rodent","10003",226
+"31","Food Establishment","10004",39
+"32","Illegal Parking","10004",239
+"33","Noise - Commercial","10004",28
+"34","Noise - Street/Sidewalk","10004",32
+"35","Rodent","10004",25
+"36","Food Establishment","10005",22
+"37","Illegal Parking","10005",105
+"38","Noise - Commercial","10005",49
+"39","Noise - Street/Sidewalk","10005",100
+"40","Rodent","10005",7
+"41","Food Establishment","10006",19
+"42","Illegal Parking","10006",78
+"43","Noise - Commercial","10006",44
+"44","Noise - Street/Sidewalk","10006",15
+"45","Rodent","10006",22
+"46","Food Establishment","10007",81
+"47","Illegal Parking","10007",309
+"48","Noise - Commercial","10007",55
+"49","Noise - Street/Sidewalk","10007",179
+"50","Rodent","10007",34
+"51","Food Establishment","10009",95
+"52","Illegal Parking","10009",443
+"53","Noise - Commercial","10009",1488
+"54","Noise - Street/Sidewalk","10009",910
+"55","Rodent","10009",367
+"56","Food Establishment","10010",101
+"57","Illegal Parking","10010",247
+"58","Noise - Commercial","10010",356
+"59","Noise - Street/Sidewalk","10010",294
+"60","Rodent","10010",101
+"61","Food Establishment","10011",162
+"62","Illegal Parking","10011",385
+"63","Noise - Commercial","10011",561
+"64","Noise - Street/Sidewalk","10011",393
+"65","Rodent","10011",263
+"66","Food Establishment","10012",115
+"67","Illegal Parking","10012",245
+"68","Noise - Commercial","10012",814
+"69","Noise - Street/Sidewalk","10012",796
+"70","Rodent","10012",111
+"71","Food Establishment","10013",152
+"72","Illegal Parking","10013",576
+"73","Noise - Commercial","10013",518
+"74","Noise - Street/Sidewalk","10013",328
+"75","Rodent","10013",116
+"76","Food Establishment","10014",124
+"77","Illegal Parking","10014",510
+"78","Noise - Commercial","10014",595
+"79","Noise - Street/Sidewalk","10014",363
+"80","Rodent","10014",210
+"81","Food Establishment","10016",220
+"82","Illegal Parking","10016",450
+"83","Noise - Commercial","10016",571
+"84","Noise - Street/Sidewalk","10016",363
+"85","Rodent","10016",174
+"86","Food Establishment","10017",87
+"87","Illegal Parking","10017",634
+"88","Noise - Commercial","10017",165
+"89","Noise - Street/Sidewalk","10017",269
+"90","Rodent","10017",27
+"91","Food Establishment","10018",93
+"92","Illegal Parking","10018",225
+"93","Noise - Commercial","10018",197
+"94","Noise - Street/Sidewalk","10018",132
+"95","Rodent","10018",58
+"96","Food Establishment","10019",201
+"97","Illegal Parking","10019",914
+"98","Noise - Commercial","10019",521
+"99","Noise - Street/Sidewalk","10019",364
+"100","Rodent","10019",116
+"101","Food Establishment","10020",22
+"102","Illegal Parking","10020",32
+"103","Noise - Commercial","10020",3
+"104","Noise - Street/Sidewalk","10020",9
+"105","Rodent","10020",0
+"106","Food Establishment","10021",60
+"107","Illegal Parking","10021",314
+"108","Noise - Commercial","10021",114
+"109","Noise - Street/Sidewalk","10021",134
+"110","Rodent","10021",177
+"111","Food Establishment","10022",132
+"112","Illegal Parking","10022",460
+"113","Noise - Commercial","10022",310
+"114","Noise - Street/Sidewalk","10022",113
+"115","Rodent","10022",107
+"116","Food Establishment","10023",117
+"117","Illegal Parking","10023",957
+"118","Noise - Commercial","10023",226
+"119","Noise - Street/Sidewalk","10023",405
+"120","Rodent","10023",170
+"121","Food Establishment","10024",147
+"122","Illegal Parking","10024",534
+"123","Noise - Commercial","10024",236
+"124","Noise - Street/Sidewalk","10024",266
+"125","Rodent","10024",308
+"126","Food Establishment","10025",138
+"127","Illegal Parking","10025",738
+"128","Noise - Commercial","10025",455
+"129","Noise - Street/Sidewalk","10025",1224
+"130","Rodent","10025",663
+"131","Food Establishment","10026",80
+"132","Illegal Parking","10026",261
+"133","Noise - Commercial","10026",283
+"134","Noise - Street/Sidewalk","10026",1547
+"135","Rodent","10026",412
+"136","Food Establishment","10027",106
+"137","Illegal Parking","10027",676
+"138","Noise - Commercial","10027",329
+"139","Noise - Street/Sidewalk","10027",1292
+"140","Rodent","10027",288
+"141","Food Establishment","10028",82
+"142","Illegal Parking","10028",331
+"143","Noise - Commercial","10028",447
+"144","Noise - Street/Sidewalk","10028",284
+"145","Rodent","10028",188
+"146","Food Establishment","10029",92
+"147","Illegal Parking","10029",983
+"148","Noise - Commercial","10029",562
+"149","Noise - Street/Sidewalk","10029",1056
+"150","Rodent","10029",303
+"151","Food Establishment","10030",29
+"152","Illegal Parking","10030",477
+"153","Noise - Commercial","10030",272
+"154","Noise - Street/Sidewalk","10030",701
+"155","Rodent","10030",248
+"156","Food Establishment","10031",56
+"157","Illegal Parking","10031",471
+"158","Noise - Commercial","10031",653
+"159","Noise - Street/Sidewalk","10031",3003
+"160","Rodent","10031",390
+"161","Food Establishment","10032",41
+"162","Illegal Parking","10032",644
+"163","Noise - Commercial","10032",377
+"164","Noise - Street/Sidewalk","10032",2717
+"165","Rodent","10032",301
+"166","Food Establishment","10033",68
+"167","Illegal Parking","10033",715
+"168","Noise - Commercial","10033",724
+"169","Noise - Street/Sidewalk","10033",1744
+"170","Rodent","10033",263
+"171","Food Establishment","10034",63
+"172","Illegal Parking","10034",649
+"173","Noise - Commercial","10034",1165
+"174","Noise - Street/Sidewalk","10034",1604
+"175","Rodent","10034",273
+"176","Food Establishment","10035",74
+"177","Illegal Parking","10035",345
+"178","Noise - Commercial","10035",219
+"179","Noise - Street/Sidewalk","10035",714
+"180","Rodent","10035",199
+"181","Food Establishment","10036",159
+"182","Illegal Parking","10036",638
+"183","Noise - Commercial","10036",715
+"184","Noise - Street/Sidewalk","10036",611
+"185","Rodent","10036",101
+"186","Food Establishment","10037",24
+"187","Illegal Parking","10037",226
+"188","Noise - Commercial","10037",45
+"189","Noise - Street/Sidewalk","10037",303
+"190","Rodent","10037",75
+"191","Food Establishment","10038",71
+"192","Illegal Parking","10038",625
+"193","Noise - Commercial","10038",180
+"194","Noise - Street/Sidewalk","10038",149
+"195","Rodent","10038",76
+"196","Food Establishment","10039",22
+"197","Illegal Parking","10039",181
+"198","Noise - Commercial","10039",61
+"199","Noise - Street/Sidewalk","10039",843
+"200","Rodent","10039",143
+"201","Food Establishment","10040",36
+"202","Illegal Parking","10040",712
+"203","Noise - Commercial","10040",679
+"204","Noise - Street/Sidewalk","10040",3084
+"205","Rodent","10040",196
+"206","Food Establishment","10041",1
+"207","Illegal Parking","10041",3
+"208","Noise - Commercial","10041",0
+"209","Noise - Street/Sidewalk","10041",6
+"210","Rodent","10041",0
+"211","Food Establishment","10044",5
+"212","Illegal Parking","10044",3
+"213","Noise - Commercial","10044",1
+"214","Noise - Street/Sidewalk","10044",3
+"215","Rodent","10044",15
+"216","Food Establishment","10045",1
+"217","Illegal Parking","10045",0
+"218","Noise - Commercial","10045",0
+"219","Noise - Street/Sidewalk","10045",0
+"220","Rodent","10045",0
+"221","Food Establishment","10048",0
+"222","Illegal Parking","10048",1
+"223","Noise - Commercial","10048",0
+"224","Noise - Street/Sidewalk","10048",0
+"225","Rodent","10048",0
+"226","Food Establishment","10065",70
+"227","Illegal Parking","10065",268
+"228","Noise - Commercial","10065",93
+"229","Noise - Street/Sidewalk","10065",105
+"230","Rodent","10065",130
+"231","Food Establishment","10069",2
+"232","Illegal Parking","10069",36
+"233","Noise - Commercial","10069",2
+"234","Noise - Street/Sidewalk","10069",10
+"235","Rodent","10069",8
+"236","Food Establishment","10075",48
+"237","Illegal Parking","10075",243
+"238","Noise - Commercial","10075",217
+"239","Noise - Street/Sidewalk","10075",139
+"240","Rodent","10075",85
+"241","Food Establishment","10103",1
+"242","Illegal Parking","10103",6
+"243","Noise - Commercial","10103",0
+"244","Noise - Street/Sidewalk","10103",0
+"245","Rodent","10103",0
+"246","Food Establishment","10105",2
+"247","Illegal Parking","10105",1
+"248","Noise - Commercial","10105",0
+"249","Noise - Street/Sidewalk","10105",0
+"250","Rodent","10105",0
+"251","Food Establishment","10106",3
+"252","Illegal Parking","10106",0
+"253","Noise - Commercial","10106",2
+"254","Noise - Street/Sidewalk","10106",0
+"255","Rodent","10106",0
+"256","Food Establishment","10107",0
+"257","Illegal Parking","10107",0
+"258","Noise - Commercial","10107",0
+"259","Noise - Street/Sidewalk","10107",3
+"260","Rodent","10107",0
+"261","Food Establishment","10110",3
+"262","Illegal Parking","10110",0
+"263","Noise - Commercial","10110",1
+"264","Noise - Street/Sidewalk","10110",1
+"265","Rodent","10110",0
+"266","Food Establishment","10111",5
+"267","Illegal Parking","10111",0
+"268","Noise - Commercial","10111",0
+"269","Noise - Street/Sidewalk","10111",0
+"270","Rodent","10111",1
+"271","Food Establishment","10112",3
+"272","Illegal Parking","10112",2
+"273","Noise - Commercial","10112",2
+"274","Noise - Street/Sidewalk","10112",1
+"275","Rodent","10112",1
+"276","Food Establishment","10115",0
+"277","Illegal Parking","10115",1
+"278","Noise - Commercial","10115",0
+"279","Noise - Street/Sidewalk","10115",0
+"280","Rodent","10115",0
+"281","Food Establishment","10118",1
+"282","Illegal Parking","10118",2
+"283","Noise - Commercial","10118",0
+"284","Noise - Street/Sidewalk","10118",0
+"285","Rodent","10118",2
+"286","Food Establishment","10119",5
+"287","Illegal Parking","10119",1
+"288","Noise - Commercial","10119",0
+"289","Noise - Street/Sidewalk","10119",3
+"290","Rodent","10119",0
+"291","Food Establishment","10120",0
+"292","Illegal Parking","10120",5
+"293","Noise - Commercial","10120",0
+"294","Noise - Street/Sidewalk","10120",0
+"295","Rodent","10120",2
+"296","Food Establishment","10121",2
+"297","Illegal Parking","10121",0
+"298","Noise - Commercial","10121",9
+"299","Noise - Street/Sidewalk","10121",2
+"300","Rodent","10121",0
+"301","Food Establishment","10122",0
+"302","Illegal Parking","10122",0
+"303","Noise - Commercial","10122",0
+"304","Noise - Street/Sidewalk","10122",2
+"305","Rodent","10122",0
+"306","Food Establishment","10123",2
+"307","Illegal Parking","10123",0
+"308","Noise - Commercial","10123",0
+"309","Noise - Street/Sidewalk","10123",1
+"310","Rodent","10123",0
+"311","Food Establishment","10128",84
+"312","Illegal Parking","10128",608
+"313","Noise - Commercial","10128",666
+"314","Noise - Street/Sidewalk","10128",128
+"315","Rodent","10128",211
+"316","Food Establishment","10151",0
+"317","Illegal Parking","10151",3
+"318","Noise - Commercial","10151",0
+"319","Noise - Street/Sidewalk","10151",0
+"320","Rodent","10151",1
+"321","Food Establishment","10152",0
+"322","Illegal Parking","10152",1
+"323","Noise - Commercial","10152",0
+"324","Noise - Street/Sidewalk","10152",0
+"325","Rodent","10152",0
+"326","Food Establishment","10154",0
+"327","Illegal Parking","10154",2
+"328","Noise - Commercial","10154",0
+"329","Noise - Street/Sidewalk","10154",0
+"330","Rodent","10154",0
+"331","Food Establishment","10158",0
+"332","Illegal Parking","10158",0
+"333","Noise - Commercial","10158",1
+"334","Noise - Street/Sidewalk","10158",0
+"335","Rodent","10158",0
+"336","Food Establishment","10162",0
+"337","Illegal Parking","10162",0
+"338","Noise - Commercial","10162",0
+"339","Noise - Street/Sidewalk","10162",2
+"340","Rodent","10162",1
+"341","Food Establishment","10165",0
+"342","Illegal Parking","10165",0
+"343","Noise - Commercial","10165",0
+"344","Noise - Street/Sidewalk","10165",1
+"345","Rodent","10165",0
+"346","Food Establishment","10167",1
+"347","Illegal Parking","10167",1
+"348","Noise - Commercial","10167",0
+"349","Noise - Street/Sidewalk","10167",0
+"350","Rodent","10167",0
+"351","Food Establishment","10168",0
+"352","Illegal Parking","10168",2
+"353","Noise - Commercial","10168",0
+"354","Noise - Street/Sidewalk","10168",0
+"355","Rodent","10168",0
+"356","Food Establishment","10169",4
+"357","Illegal Parking","10169",2
+"358","Noise - Commercial","10169",0
+"359","Noise - Street/Sidewalk","10169",0
+"360","Rodent","10169",0
+"361","Food Establishment","10170",0
+"362","Illegal Parking","10170",1
+"363","Noise - Commercial","10170",0
+"364","Noise - Street/Sidewalk","10170",0
+"365","Rodent","10170",0
+"366","Food Establishment","10173",0
+"367","Illegal Parking","10173",0
+"368","Noise - Commercial","10173",0
+"369","Noise - Street/Sidewalk","10173",1
+"370","Rodent","10173",0
+"371","Food Establishment","10176",2
+"372","Illegal Parking","10176",0
+"373","Noise - Commercial","10176",0
+"374","Noise - Street/Sidewalk","10176",0
+"375","Rodent","10176",0
+"376","Food Establishment","10271",1
+"377","Illegal Parking","10271",0
+"378","Noise - Commercial","10271",0
+"379","Noise - Street/Sidewalk","10271",0
+"380","Rodent","10271",0
+"381","Food Establishment","10278",0
+"382","Illegal Parking","10278",10
+"383","Noise - Commercial","10278",1
+"384","Noise - Street/Sidewalk","10278",4
+"385","Rodent","10278",0
+"386","Food Establishment","10279",5
+"387","Illegal Parking","10279",0
+"388","Noise - Commercial","10279",0
+"389","Noise - Street/Sidewalk","10279",1
+"390","Rodent","10279",0
+"391","Food Establishment","10280",8
+"392","Illegal Parking","10280",182
+"393","Noise - Commercial","10280",36
+"394","Noise - Street/Sidewalk","10280",22
+"395","Rodent","10280",0
+"396","Food Establishment","10281",3
+"397","Illegal Parking","10281",57
+"398","Noise - Commercial","10281",5
+"399","Noise - Street/Sidewalk","10281",2
+"400","Rodent","10281",0
+"401","Food Establishment","10282",3
+"402","Illegal Parking","10282",42
+"403","Noise - Commercial","10282",1
+"404","Noise - Street/Sidewalk","10282",6
+"405","Rodent","10282",3
+"406","Food Establishment","10301",34
+"407","Illegal Parking","10301",876
+"408","Noise - Commercial","10301",79
+"409","Noise - Street/Sidewalk","10301",114
+"410","Rodent","10301",159
+"411","Food Establishment","10302",33
+"412","Illegal Parking","10302",285
+"413","Noise - Commercial","10302",40
+"414","Noise - Street/Sidewalk","10302",31
+"415","Rodent","10302",119
+"416","Food Establishment","10303",24
+"417","Illegal Parking","10303",319
+"418","Noise - Commercial","10303",18
+"419","Noise - Street/Sidewalk","10303",58
+"420","Rodent","10303",121
+"421","Food Establishment","10304",25
+"422","Illegal Parking","10304",488
+"423","Noise - Commercial","10304",231
+"424","Noise - Street/Sidewalk","10304",165
+"425","Rodent","10304",201
+"426","Food Establishment","10305",28
+"427","Illegal Parking","10305",853
+"428","Noise - Commercial","10305",45
+"429","Noise - Street/Sidewalk","10305",56
+"430","Rodent","10305",166
+"431","Food Establishment","10306",39
+"432","Illegal Parking","10306",859
+"433","Noise - Commercial","10306",201
+"434","Noise - Street/Sidewalk","10306",83
+"435","Rodent","10306",183
+"436","Food Establishment","10307",12
+"437","Illegal Parking","10307",223
+"438","Noise - Commercial","10307",37
+"439","Noise - Street/Sidewalk","10307",26
+"440","Rodent","10307",24
+"441","Food Establishment","10308",12
+"442","Illegal Parking","10308",565
+"443","Noise - Commercial","10308",150
+"444","Noise - Street/Sidewalk","10308",58
+"445","Rodent","10308",70
+"446","Food Establishment","10309",26
+"447","Illegal Parking","10309",666
+"448","Noise - Commercial","10309",9
+"449","Noise - Street/Sidewalk","10309",54
+"450","Rodent","10309",89
+"451","Food Establishment","10310",23
+"452","Illegal Parking","10310",302
+"453","Noise - Commercial","10310",97
+"454","Noise - Street/Sidewalk","10310",74
+"455","Rodent","10310",159
+"456","Food Establishment","10312",31
+"457","Illegal Parking","10312",1169
+"458","Noise - Commercial","10312",152
+"459","Noise - Street/Sidewalk","10312",57
+"460","Rodent","10312",154
+"461","Food Establishment","10314",84
+"462","Illegal Parking","10314",1464
+"463","Noise - Commercial","10314",32
+"464","Noise - Street/Sidewalk","10314",92
+"465","Rodent","10314",287
+"466","Food Establishment","10451",51
+"467","Illegal Parking","10451",501
+"468","Noise - Commercial","10451",89
+"469","Noise - Street/Sidewalk","10451",821
+"470","Rodent","10451",720
+"471","Food Establishment","10452",57
+"472","Illegal Parking","10452",569
+"473","Noise - Commercial","10452",96
+"474","Noise - Street/Sidewalk","10452",1309
+"475","Rodent","10452",344
+"476","Food Establishment","10453",74
+"477","Illegal Parking","10453",633
+"478","Noise - Commercial","10453",206
+"479","Noise - Street/Sidewalk","10453",1124
+"480","Rodent","10453",483
+"481","Food Establishment","10454",25
+"482","Illegal Parking","10454",336
+"483","Noise - Commercial","10454",82
+"484","Noise - Street/Sidewalk","10454",212
+"485","Rodent","10454",187
+"486","Food Establishment","10455",49
+"487","Illegal Parking","10455",323
+"488","Noise - Commercial","10455",75
+"489","Noise - Street/Sidewalk","10455",573
+"490","Rodent","10455",222
+"491","Food Establishment","10456",42
+"492","Illegal Parking","10456",579
+"493","Noise - Commercial","10456",90
+"494","Noise - Street/Sidewalk","10456",1315
+"495","Rodent","10456",528
+"496","Food Establishment","10457",44
+"497","Illegal Parking","10457",807
+"498","Noise - Commercial","10457",144
+"499","Noise - Street/Sidewalk","10457",1277
+"500","Rodent","10457",555
+"501","Food Establishment","10458",75
+"502","Illegal Parking","10458",507
+"503","Noise - Commercial","10458",214
+"504","Noise - Street/Sidewalk","10458",978
+"505","Rodent","10458",452
+"506","Food Establishment","10459",46
+"507","Illegal Parking","10459",336
+"508","Noise - Commercial","10459",160
+"509","Noise - Street/Sidewalk","10459",533
+"510","Rodent","10459",287
+"511","Food Establishment","10460",42
+"512","Illegal Parking","10460",504
+"513","Noise - Commercial","10460",95
+"514","Noise - Street/Sidewalk","10460",609
+"515","Rodent","10460",369
+"516","Food Establishment","10461",62
+"517","Illegal Parking","10461",1218
+"518","Noise - Commercial","10461",169
+"519","Noise - Street/Sidewalk","10461",158
+"520","Rodent","10461",131
+"521","Food Establishment","10462",73
+"522","Illegal Parking","10462",991
+"523","Noise - Commercial","10462",157
+"524","Noise - Street/Sidewalk","10462",258
+"525","Rodent","10462",333
+"526","Food Establishment","10463",60
+"527","Illegal Parking","10463",1091
+"528","Noise - Commercial","10463",225
+"529","Noise - Street/Sidewalk","10463",721
+"530","Rodent","10463",358
+"531","Food Establishment","10464",11
+"532","Illegal Parking","10464",218
+"533","Noise - Commercial","10464",42
+"534","Noise - Street/Sidewalk","10464",40
+"535","Rodent","10464",33
+"536","Food Establishment","10465",27
+"537","Illegal Parking","10465",1243
+"538","Noise - Commercial","10465",88
+"539","Noise - Street/Sidewalk","10465",221
+"540","Rodent","10465",133
+"541","Food Establishment","10466",21
+"542","Illegal Parking","10466",931
+"543","Noise - Commercial","10466",98
+"544","Noise - Street/Sidewalk","10466",224
+"545","Rodent","10466",257
+"546","Food Establishment","10467",103
+"547","Illegal Parking","10467",986
+"548","Noise - Commercial","10467",91
+"549","Noise - Street/Sidewalk","10467",714
+"550","Rodent","10467",559
+"551","Food Establishment","10468",60
+"552","Illegal Parking","10468",997
+"553","Noise - Commercial","10468",213
+"554","Noise - Street/Sidewalk","10468",1464
+"555","Rodent","10468",439
+"556","Food Establishment","10469",37
+"557","Illegal Parking","10469",823
+"558","Noise - Commercial","10469",105
+"559","Noise - Street/Sidewalk","10469",248
+"560","Rodent","10469",267
+"561","Food Establishment","10470",9
+"562","Illegal Parking","10470",417
+"563","Noise - Commercial","10470",53
+"564","Noise - Street/Sidewalk","10470",48
+"565","Rodent","10470",81
+"566","Food Establishment","10471",19
+"567","Illegal Parking","10471",419
+"568","Noise - Commercial","10471",68
+"569","Noise - Street/Sidewalk","10471",57
+"570","Rodent","10471",80
+"571","Food Establishment","10472",56
+"572","Illegal Parking","10472",659
+"573","Noise - Commercial","10472",1139
+"574","Noise - Street/Sidewalk","10472",788
+"575","Rodent","10472",249
+"576","Food Establishment","10473",23
+"577","Illegal Parking","10473",576
+"578","Noise - Commercial","10473",25
+"579","Noise - Street/Sidewalk","10473",222
+"580","Rodent","10473",167
+"581","Food Establishment","10474",12
+"582","Illegal Parking","10474",308
+"583","Noise - Commercial","10474",23
+"584","Noise - Street/Sidewalk","10474",162
+"585","Rodent","10474",139
+"586","Food Establishment","10475",41
+"587","Illegal Parking","10475",284
+"588","Noise - Commercial","10475",15
+"589","Noise - Street/Sidewalk","10475",34
+"590","Rodent","10475",28
+"591","Food Establishment","11",1
+"592","Illegal Parking","11",0
+"593","Noise - Commercial","11",0
+"594","Noise - Street/Sidewalk","11",0
+"595","Rodent","11",0
+"596","Food Establishment","11001",0
+"597","Illegal Parking","11001",195
+"598","Noise - Commercial","11001",3
+"599","Noise - Street/Sidewalk","11001",2
+"600","Rodent","11001",11
+"601","Food Establishment","11004",25
+"602","Illegal Parking","11004",126
+"603","Noise - Commercial","11004",62
+"604","Noise - Street/Sidewalk","11004",15
+"605","Rodent","11004",20
+"606","Food Establishment","11005",10
+"607","Illegal Parking","11005",0
+"608","Noise - Commercial","11005",0
+"609","Noise - Street/Sidewalk","11005",0
+"610","Rodent","11005",0
+"611","Food Establishment","11040",8
+"612","Illegal Parking","11040",22
+"613","Noise - Commercial","11040",19
+"614","Noise - Street/Sidewalk","11040",8
+"615","Rodent","11040",2
+"616","Food Establishment","11096",0
+"617","Illegal Parking","11096",0
+"618","Noise - Commercial","11096",0
+"619","Noise - Street/Sidewalk","11096",1
+"620","Rodent","11096",0
+"621","Food Establishment","11101",112
+"622","Illegal Parking","11101",2343
+"623","Noise - Commercial","11101",532
+"624","Noise - Street/Sidewalk","11101",196
+"625","Rodent","11101",140
+"626","Food Establishment","11102",51
+"627","Illegal Parking","11102",811
+"628","Noise - Commercial","11102",599
+"629","Noise - Street/Sidewalk","11102",208
+"630","Rodent","11102",78
+"631","Food Establishment","11103",100
+"632","Illegal Parking","11103",605
+"633","Noise - Commercial","11103",832
+"634","Noise - Street/Sidewalk","11103",187
+"635","Rodent","11103",137
+"636","Food Establishment","11104",33
+"637","Illegal Parking","11104",343
+"638","Noise - Commercial","11104",214
+"639","Noise - Street/Sidewalk","11104",141
+"640","Rodent","11104",57
+"641","Food Establishment","11105",52
+"642","Illegal Parking","11105",799
+"643","Noise - Commercial","11105",309
+"644","Noise - Street/Sidewalk","11105",252
+"645","Rodent","11105",82
+"646","Food Establishment","11106",30
+"647","Illegal Parking","11106",816
+"648","Noise - Commercial","11106",532
+"649","Noise - Street/Sidewalk","11106",307
+"650","Rodent","11106",98
+"651","Food Establishment","11109",2
+"652","Illegal Parking","11109",82
+"653","Noise - Commercial","11109",16
+"654","Noise - Street/Sidewalk","11109",17
+"655","Rodent","11109",1
+"656","Food Establishment","11201",139
+"657","Illegal Parking","11201",1482
+"658","Noise - Commercial","11201",501
+"659","Noise - Street/Sidewalk","11201",523
+"660","Rodent","11201",220
+"661","Food Establishment","11203",55
+"662","Illegal Parking","11203",971
+"663","Noise - Commercial","11203",281
+"664","Noise - Street/Sidewalk","11203",462
+"665","Rodent","11203",330
+"666","Food Establishment","11204",46
+"667","Illegal Parking","11204",2653
+"668","Noise - Commercial","11204",69
+"669","Noise - Street/Sidewalk","11204",149
+"670","Rodent","11204",135
+"671","Food Establishment","11205",66
+"672","Illegal Parking","11205",1323
+"673","Noise - Commercial","11205",856
+"674","Noise - Street/Sidewalk","11205",382
+"675","Rodent","11205",364
+"676","Food Establishment","11206",80
+"677","Illegal Parking","11206",1190
+"678","Noise - Commercial","11206",1086
+"679","Noise - Street/Sidewalk","11206",852
+"680","Rodent","11206",567
+"681","Food Establishment","11207",77
+"682","Illegal Parking","11207",1501
+"683","Noise - Commercial","11207",346
+"684","Noise - Street/Sidewalk","11207",559
+"685","Rodent","11207",669
+"686","Food Establishment","11208",75
+"687","Illegal Parking","11208",2156
+"688","Noise - Commercial","11208",143
+"689","Noise - Street/Sidewalk","11208",825
+"690","Rodent","11208",376
+"691","Food Establishment","11209",130
+"692","Illegal Parking","11209",3289
+"693","Noise - Commercial","11209",577
+"694","Noise - Street/Sidewalk","11209",210
+"695","Rodent","11209",154
+"696","Food Establishment","11210",45
+"697","Illegal Parking","11210",1125
+"698","Noise - Commercial","11210",52
+"699","Noise - Street/Sidewalk","11210",193
+"700","Rodent","11210",214
+"701","Food Establishment","11211",96
+"702","Illegal Parking","11211",900
+"703","Noise - Commercial","11211",1396
+"704","Noise - Street/Sidewalk","11211",1452
+"705","Rodent","11211",366
+"706","Food Establishment","11212",81
+"707","Illegal Parking","11212",663
+"708","Noise - Commercial","11212",68
+"709","Noise - Street/Sidewalk","11212",365
+"710","Rodent","11212",413
+"711","Food Establishment","11213",60
+"712","Illegal Parking","11213",695
+"713","Noise - Commercial","11213",230
+"714","Noise - Street/Sidewalk","11213",897
+"715","Rodent","11213",447
+"716","Food Establishment","11214",67
+"717","Illegal Parking","11214",3159
+"718","Noise - Commercial","11214",104
+"719","Noise - Street/Sidewalk","11214",214
+"720","Rodent","11214",164
+"721","Food Establishment","11215",120
+"722","Illegal Parking","11215",1872
+"723","Noise - Commercial","11215",483
+"724","Noise - Street/Sidewalk","11215",365
+"725","Rodent","11215",479
+"726","Food Establishment","11216",100
+"727","Illegal Parking","11216",775
+"728","Noise - Commercial","11216",1025
+"729","Noise - Street/Sidewalk","11216",1274
+"730","Rodent","11216",771
+"731","Food Establishment","11217",95
+"732","Illegal Parking","11217",1487
+"733","Noise - Commercial","11217",1566
+"734","Noise - Street/Sidewalk","11217",456
+"735","Rodent","11217",439
+"736","Food Establishment","11218",65
+"737","Illegal Parking","11218",2491
+"738","Noise - Commercial","11218",164
+"739","Noise - Street/Sidewalk","11218",302
+"740","Rodent","11218",184
+"741","Food Establishment","11219",38
+"742","Illegal Parking","11219",1915
+"743","Noise - Commercial","11219",132
+"744","Noise - Street/Sidewalk","11219",182
+"745","Rodent","11219",161
+"746","Food Establishment","11220",107
+"747","Illegal Parking","11220",2013
+"748","Noise - Commercial","11220",378
+"749","Noise - Street/Sidewalk","11220",498
+"750","Rodent","11220",188
+"751","Food Establishment","11221",65
+"752","Illegal Parking","11221",790
+"753","Noise - Commercial","11221",462
+"754","Noise - Street/Sidewalk","11221",1149
+"755","Rodent","11221",788
+"756","Food Establishment","11222",60
+"757","Illegal Parking","11222",983
+"758","Noise - Commercial","11222",699
+"759","Noise - Street/Sidewalk","11222",393
+"760","Rodent","11222",296
+"761","Food Establishment","11223",75
+"762","Illegal Parking","11223",3082
+"763","Noise - Commercial","11223",108
+"764","Noise - Street/Sidewalk","11223",152
+"765","Rodent","11223",124
+"766","Food Establishment","11224",33
+"767","Illegal Parking","11224",395
+"768","Noise - Commercial","11224",46
+"769","Noise - Street/Sidewalk","11224",184
+"770","Rodent","11224",81
+"771","Food Establishment","11225",56
+"772","Illegal Parking","11225",766
+"773","Noise - Commercial","11225",287
+"774","Noise - Street/Sidewalk","11225",1667
+"775","Rodent","11225",323
+"776","Food Establishment","11226",73
+"777","Illegal Parking","11226",1076
+"778","Noise - Commercial","11226",410
+"779","Noise - Street/Sidewalk","11226",1831
+"780","Rodent","11226",596
+"781","Food Establishment","11228",26
+"782","Illegal Parking","11228",2209
+"783","Noise - Commercial","11228",30
+"784","Noise - Street/Sidewalk","11228",73
+"785","Rodent","11228",70
+"786","Food Establishment","11229",67
+"787","Illegal Parking","11229",1430
+"788","Noise - Commercial","11229",75
+"789","Noise - Street/Sidewalk","11229",266
+"790","Rodent","11229",182
+"791","Food Establishment","11230",72
+"792","Illegal Parking","11230",2440
+"793","Noise - Commercial","11230",159
+"794","Noise - Street/Sidewalk","11230",176
+"795","Rodent","11230",341
+"796","Food Establishment","11231",37
+"797","Illegal Parking","11231",826
+"798","Noise - Commercial","11231",304
+"799","Noise - Street/Sidewalk","11231",191
+"800","Rodent","11231",148
+"801","Food Establishment","11232",32
+"802","Illegal Parking","11232",591
+"803","Noise - Commercial","11232",94
+"804","Noise - Street/Sidewalk","11232",223
+"805","Rodent","11232",69
+"806","Food Establishment","11233",70
+"807","Illegal Parking","11233",905
+"808","Noise - Commercial","11233",123
+"809","Noise - Street/Sidewalk","11233",1026
+"810","Rodent","11233",516
+"811","Food Establishment","11234",53
+"812","Illegal Parking","11234",2819
+"813","Noise - Commercial","11234",197
+"814","Noise - Street/Sidewalk","11234",216
+"815","Rodent","11234",190
+"816","Food Establishment","11235",103
+"817","Illegal Parking","11235",1479
+"818","Noise - Commercial","11235",431
+"819","Noise - Street/Sidewalk","11235",138
+"820","Rodent","11235",239
+"821","Food Establishment","11236",57
+"822","Illegal Parking","11236",1433
+"823","Noise - Commercial","11236",113
+"824","Noise - Street/Sidewalk","11236",201
+"825","Rodent","11236",224
+"826","Food Establishment","11237",62
+"827","Illegal Parking","11237",594
+"828","Noise - Commercial","11237",1100
+"829","Noise - Street/Sidewalk","11237",1646
+"830","Rodent","11237",386
+"831","Food Establishment","11238",71
+"832","Illegal Parking","11238",1460
+"833","Noise - Commercial","11238",1298
+"834","Noise - Street/Sidewalk","11238",1292
+"835","Rodent","11238",825
+"836","Food Establishment","11239",18
+"837","Illegal Parking","11239",101
+"838","Noise - Commercial","11239",1
+"839","Noise - Street/Sidewalk","11239",7
+"840","Rodent","11239",5
+"841","Food Establishment","11241",0
+"842","Illegal Parking","11241",1
+"843","Noise - Commercial","11241",0
+"844","Noise - Street/Sidewalk","11241",1
+"845","Rodent","11241",0
+"846","Food Establishment","11249",37
+"847","Illegal Parking","11249",482
+"848","Noise - Commercial","11249",1001
+"849","Noise - Street/Sidewalk","11249",341
+"850","Rodent","11249",180
+"851","Food Establishment","11251",0
+"852","Illegal Parking","11251",3
+"853","Noise - Commercial","11251",0
+"854","Noise - Street/Sidewalk","11251",0
+"855","Rodent","11251",0
+"856","Food Establishment","11354",169
+"857","Illegal Parking","11354",614
+"858","Noise - Commercial","11354",119
+"859","Noise - Street/Sidewalk","11354",163
+"860","Rodent","11354",85
+"861","Food Establishment","11355",81
+"862","Illegal Parking","11355",1229
+"863","Noise - Commercial","11355",61
+"864","Noise - Street/Sidewalk","11355",98
+"865","Rodent","11355",97
+"866","Food Establishment","11356",21
+"867","Illegal Parking","11356",761
+"868","Noise - Commercial","11356",69
+"869","Noise - Street/Sidewalk","11356",73
+"870","Rodent","11356",35
+"871","Food Establishment","11357",20
+"872","Illegal Parking","11357",916
+"873","Noise - Commercial","11357",32
+"874","Noise - Street/Sidewalk","11357",116
+"875","Rodent","11357",103
+"876","Food Establishment","11358",50
+"877","Illegal Parking","11358",579
+"878","Noise - Commercial","11358",156
+"879","Noise - Street/Sidewalk","11358",46
+"880","Rodent","11358",67
+"881","Food Establishment","11359",0
+"882","Illegal Parking","11359",2
+"883","Noise - Commercial","11359",1
+"884","Noise - Street/Sidewalk","11359",0
+"885","Rodent","11359",0
+"886","Food Establishment","11360",11
+"887","Illegal Parking","11360",204
+"888","Noise - Commercial","11360",10
+"889","Noise - Street/Sidewalk","11360",17
+"890","Rodent","11360",15
+"891","Food Establishment","11361",44
+"892","Illegal Parking","11361",496
+"893","Noise - Commercial","11361",78
+"894","Noise - Street/Sidewalk","11361",20
+"895","Rodent","11361",107
+"896","Food Establishment","11362",12
+"897","Illegal Parking","11362",247
+"898","Noise - Commercial","11362",64
+"899","Noise - Street/Sidewalk","11362",12
+"900","Rodent","11362",8
+"901","Food Establishment","11363",3
+"902","Illegal Parking","11363",153
+"903","Noise - Commercial","11363",7
+"904","Noise - Street/Sidewalk","11363",6
+"905","Rodent","11363",10
+"906","Food Establishment","11364",18
+"907","Illegal Parking","11364",520
+"908","Noise - Commercial","11364",3
+"909","Noise - Street/Sidewalk","11364",24
+"910","Rodent","11364",35
+"911","Food Establishment","11365",30
+"912","Illegal Parking","11365",967
+"913","Noise - Commercial","11365",8
+"914","Noise - Street/Sidewalk","11365",46
+"915","Rodent","11365",47
+"916","Food Establishment","11366",13
+"917","Illegal Parking","11366",1054
+"918","Noise - Commercial","11366",3
+"919","Noise - Street/Sidewalk","11366",35
+"920","Rodent","11366",23
+"921","Food Establishment","11367",30
+"922","Illegal Parking","11367",646
+"923","Noise - Commercial","11367",17
+"924","Noise - Street/Sidewalk","11367",81
+"925","Rodent","11367",69
+"926","Food Establishment","11368",78
+"927","Illegal Parking","11368",1253
+"928","Noise - Commercial","11368",348
+"929","Noise - Street/Sidewalk","11368",684
+"930","Rodent","11368",222
+"931","Food Establishment","11369",25
+"932","Illegal Parking","11369",731
+"933","Noise - Commercial","11369",51
+"934","Noise - Street/Sidewalk","11369",143
+"935","Rodent","11369",68
+"936","Food Establishment","11370",9
+"937","Illegal Parking","11370",710
+"938","Noise - Commercial","11370",12
+"939","Noise - Street/Sidewalk","11370",56
+"940","Rodent","11370",82
+"941","Food Establishment","11371",1
+"942","Illegal Parking","11371",1
+"943","Noise - Commercial","11371",0
+"944","Noise - Street/Sidewalk","11371",0
+"945","Rodent","11371",0
+"946","Food Establishment","11372",129
+"947","Illegal Parking","11372",613
+"948","Noise - Commercial","11372",350
+"949","Noise - Street/Sidewalk","11372",300
+"950","Rodent","11372",167
+"951","Food Establishment","11373",71
+"952","Illegal Parking","11373",1277
+"953","Noise - Commercial","11373",91
+"954","Noise - Street/Sidewalk","11373",304
+"955","Rodent","11373",192
+"956","Food Establishment","11374",58
+"957","Illegal Parking","11374",940
+"958","Noise - Commercial","11374",52
+"959","Noise - Street/Sidewalk","11374",58
+"960","Rodent","11374",159
+"961","Food Establishment","11375",85
+"962","Illegal Parking","11375",932
+"963","Noise - Commercial","11375",281
+"964","Noise - Street/Sidewalk","11375",188
+"965","Rodent","11375",121
+"966","Food Establishment","11377",75
+"967","Illegal Parking","11377",2301
+"968","Noise - Commercial","11377",253
+"969","Noise - Street/Sidewalk","11377",344
+"970","Rodent","11377",311
+"971","Food Establishment","11378",37
+"972","Illegal Parking","11378",2338
+"973","Noise - Commercial","11378",91
+"974","Noise - Street/Sidewalk","11378",167
+"975","Rodent","11378",138
+"976","Food Establishment","11379",24
+"977","Illegal Parking","11379",1730
+"978","Noise - Commercial","11379",16
+"979","Noise - Street/Sidewalk","11379",57
+"980","Rodent","11379",121
+"981","Food Establishment","11385",105
+"982","Illegal Parking","11385",4136
+"983","Noise - Commercial","11385",516
+"984","Noise - Street/Sidewalk","11385",607
+"985","Rodent","11385",447
+"986","Food Establishment","11411",21
+"987","Illegal Parking","11411",141
+"988","Noise - Commercial","11411",28
+"989","Noise - Street/Sidewalk","11411",31
+"990","Rodent","11411",38
+"991","Food Establishment","11412",16
+"992","Illegal Parking","11412",438
+"993","Noise - Commercial","11412",61
+"994","Noise - Street/Sidewalk","11412",110
+"995","Rodent","11412",174
+"996","Food Establishment","11413",19
+"997","Illegal Parking","11413",480
+"998","Noise - Commercial","11413",54
+"999","Noise - Street/Sidewalk","11413",50
+"1000","Rodent","11413",83
+"1001","Food Establishment","11414",33
+"1002","Illegal Parking","11414",629
+"1003","Noise - Commercial","11414",108
+"1004","Noise - Street/Sidewalk","11414",42
+"1005","Rodent","11414",65
+"1006","Food Establishment","11415",24
+"1007","Illegal Parking","11415",308
+"1008","Noise - Commercial","11415",194
+"1009","Noise - Street/Sidewalk","11415",32
+"1010","Rodent","11415",49
+"1011","Food Establishment","11416",20
+"1012","Illegal Parking","11416",677
+"1013","Noise - Commercial","11416",49
+"1014","Noise - Street/Sidewalk","11416",127
+"1015","Rodent","11416",83
+"1016","Food Establishment","11417",40
+"1017","Illegal Parking","11417",849
+"1018","Noise - Commercial","11417",148
+"1019","Noise - Street/Sidewalk","11417",127
+"1020","Rodent","11417",138
+"1021","Food Establishment","11418",68
+"1022","Illegal Parking","11418",1421
+"1023","Noise - Commercial","11418",110
+"1024","Noise - Street/Sidewalk","11418",184
+"1025","Rodent","11418",145
+"1026","Food Establishment","11419",73
+"1027","Illegal Parking","11419",1099
+"1028","Noise - Commercial","11419",106
+"1029","Noise - Street/Sidewalk","11419",135
+"1030","Rodent","11419",142
+"1031","Food Establishment","11420",16
+"1032","Illegal Parking","11420",1111
+"1033","Noise - Commercial","11420",101
+"1034","Noise - Street/Sidewalk","11420",212
+"1035","Rodent","11420",141
+"1036","Food Establishment","11421",26
+"1037","Illegal Parking","11421",1440
+"1038","Noise - Commercial","11421",53
+"1039","Noise - Street/Sidewalk","11421",145
+"1040","Rodent","11421",73
+"1041","Food Establishment","11422",17
+"1042","Illegal Parking","11422",283
+"1043","Noise - Commercial","11422",28
+"1044","Noise - Street/Sidewalk","11422",29
+"1045","Rodent","11422",68
+"1046","Food Establishment","11423",23
+"1047","Illegal Parking","11423",296
+"1048","Noise - Commercial","11423",19
+"1049","Noise - Street/Sidewalk","11423",64
+"1050","Rodent","11423",73
+"1051","Food Establishment","11426",12
+"1052","Illegal Parking","11426",369
+"1053","Noise - Commercial","11426",87
+"1054","Noise - Street/Sidewalk","11426",18
+"1055","Rodent","11426",35
+"1056","Food Establishment","11427",19
+"1057","Illegal Parking","11427",254
+"1058","Noise - Commercial","11427",10
+"1059","Noise - Street/Sidewalk","11427",30
+"1060","Rodent","11427",36
+"1061","Food Establishment","11428",10
+"1062","Illegal Parking","11428",253
+"1063","Noise - Commercial","11428",16
+"1064","Noise - Street/Sidewalk","11428",34
+"1065","Rodent","11428",23
+"1066","Food Establishment","11429",10
+"1067","Illegal Parking","11429",278
+"1068","Noise - Commercial","11429",11
+"1069","Noise - Street/Sidewalk","11429",48
+"1070","Rodent","11429",98
+"1071","Food Establishment","11430",17
+"1072","Illegal Parking","11430",42
+"1073","Noise - Commercial","11430",0
+"1074","Noise - Street/Sidewalk","11430",2
+"1075","Rodent","11430",2
+"1076","Food Establishment","11432",105
+"1077","Illegal Parking","11432",552
+"1078","Noise - Commercial","11432",164
+"1079","Noise - Street/Sidewalk","11432",179
+"1080","Rodent","11432",166
+"1081","Food Establishment","11433",48
+"1082","Illegal Parking","11433",475
+"1083","Noise - Commercial","11433",271
+"1084","Noise - Street/Sidewalk","11433",124
+"1085","Rodent","11433",251
+"1086","Food Establishment","11434",41
+"1087","Illegal Parking","11434",570
+"1088","Noise - Commercial","11434",62
+"1089","Noise - Street/Sidewalk","11434",131
+"1090","Rodent","11434",199
+"1091","Food Establishment","11435",37
+"1092","Illegal Parking","11435",822
+"1093","Noise - Commercial","11435",67
+"1094","Noise - Street/Sidewalk","11435",136
+"1095","Rodent","11435",211
+"1096","Food Establishment","11436",10
+"1097","Illegal Parking","11436",351
+"1098","Noise - Commercial","11436",3
+"1099","Noise - Street/Sidewalk","11436",57
+"1100","Rodent","11436",89
+"1101","Food Establishment","11559",1
+"1102","Illegal Parking","11559",0
+"1103","Noise - Commercial","11559",0
+"1104","Noise - Street/Sidewalk","11559",0
+"1105","Rodent","11559",0
+"1106","Food Establishment","11691",31
+"1107","Illegal Parking","11691",421
+"1108","Noise - Commercial","11691",22
+"1109","Noise - Street/Sidewalk","11691",198
+"1110","Rodent","11691",121
+"1111","Food Establishment","11692",10
+"1112","Illegal Parking","11692",142
+"1113","Noise - Commercial","11692",2
+"1114","Noise - Street/Sidewalk","11692",78
+"1115","Rodent","11692",29
+"1116","Food Establishment","11693",12
+"1117","Illegal Parking","11693",280
+"1118","Noise - Commercial","11693",59
+"1119","Noise - Street/Sidewalk","11693",103
+"1120","Rodent","11693",61
+"1121","Food Establishment","11694",14
+"1122","Illegal Parking","11694",665
+"1123","Noise - Commercial","11694",130
+"1124","Noise - Street/Sidewalk","11694",120
+"1125","Rodent","11694",51
+"1126","Food Establishment","11697",3
+"1127","Illegal Parking","11697",22
+"1128","Noise - Commercial","11697",1
+"1129","Noise - Street/Sidewalk","11697",3
+"1130","Rodent","11697",3
+"1131","Food Establishment","83",0
+"1132","Illegal Parking","83",0
+"1133","Noise - Commercial","83",0
+"1134","Noise - Street/Sidewalk","83",0
+"1135","Rodent","83",4
+"1136","Food Establishment","N/A",0
+"1137","Illegal Parking","N/A",0
+"1138","Noise - Commercial","N/A",0
+"1139","Noise - Street/Sidewalk","N/A",0
+"1140","Rodent","N/A",1
