@@ -90,57 +90,60 @@ sheds <- fread("~/Downloads/Sidewalk_Sheds.csv")
 # Open restaurant application data
 open_resto <- fread("~/Downloads/Open_Restaurant_Applications.csv")
 
+# 2017
+dat_311_2017 <- fread("~/Downloads/dat_311_2017_exp.csv")
+
 # # Parking violations
 # parking <- read.socrata("https://data.cityofnewyork.us/resource/2bnn-yakx.csv")
 
-# 311 reports
-  ## 2017
-  dat_311_2017 <- read.socrata(
-    "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2017-01-01T00:00:00.000' and '2018-01-01T00:00:00.000'",
-    app_token = "K7vd3wbyWNClKnbSYV8rje01b",
-    email     = "amb10034@nyu.edu",
-    password  = "6@5t7d!!$Kh$FyL"
-  )
-
-  ## 2018_1
-  start_time <- Sys.time() # 40m
-  dat_311_2018_1 <- read.socrata(
-    "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2018-01-01T00:00:00.001' and '2018-07-01T00:00:00.000'",
-    app_token = "K7vd3wbyWNClKnbSYV8rje01b",
-    email     = "amb10034@nyu.edu",
-    password  = "6@5t7d!!$Kh$FyL"
-  )
-  end_time <- Sys.time()
-  end_time - start_time
-
-  ## 2018_2
-  start_time <- Sys.time() # 36m
-  dat_311_2018_2 <- read.socrata(
-    "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2018-07-01T00:00:00.001' and '2019-01-01T00:00:00.000'",
-    app_token = "K7vd3wbyWNClKnbSYV8rje01b",
-    email     = "amb10034@nyu.edu",
-    password  = "6@5t7d!!$Kh$FyL"
-  )
-  end_time <- Sys.time()
-  end_time - start_time
-
-  ## 2019
-  start_time <- Sys.time() #2 hrs
-  dat_311_2019 <- read.socrata(
-    "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2019-01-01T00:00:00.001' and '2020-01-01T00:00:00.000'",
-    app_token = "K7vd3wbyWNClKnbSYV8rje01b",
-    email     = "amb10034@nyu.edu",
-    password  = "6@5t7d!!$Kh$FyL"
-  )
-  end_time <- Sys.time()
-  end_time - start_time
-
-
-  ## write out
-  write.csv(dat_311_2017, file = "~/Downloads/dat_311_2017.csv", row.names = FALSE)
-  write.csv(dat_311_2018_1, file = "~/Downloads/dat_311_2018_1.csv", row.names = FALSE)
-  write.csv(dat_311_2018_2, file = "~/Downloads/dat_311_2018_2.csv", row.names = FALSE)
-  write.csv(dat_311_2019, file = "~/Downloads/dat_311_2019.csv", row.names = FALSE)
+# # 311 reports
+#   ## 2017
+#   dat_311_2017 <- read.socrata(
+#     "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2017-01-01T00:00:00.000' and '2018-01-01T00:00:00.000'",
+#     app_token = "K7vd3wbyWNClKnbSYV8rje01b",
+#     email     = "amb10034@nyu.edu",
+#     password  = "6@5t7d!!$Kh$FyL"
+#   )
+# 
+#   ## 2018_1
+#   start_time <- Sys.time() # 40m
+#   dat_311_2018_1 <- read.socrata(
+#     "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2018-01-01T00:00:00.001' and '2018-07-01T00:00:00.000'",
+#     app_token = "K7vd3wbyWNClKnbSYV8rje01b",
+#     email     = "amb10034@nyu.edu",
+#     password  = "6@5t7d!!$Kh$FyL"
+#   )
+#   end_time <- Sys.time()
+#   end_time - start_time
+# 
+#   ## 2018_2
+#   start_time <- Sys.time() # 36m
+#   dat_311_2018_2 <- read.socrata(
+#     "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2018-07-01T00:00:00.001' and '2019-01-01T00:00:00.000'",
+#     app_token = "K7vd3wbyWNClKnbSYV8rje01b",
+#     email     = "amb10034@nyu.edu",
+#     password  = "6@5t7d!!$Kh$FyL"
+#   )
+#   end_time <- Sys.time()
+#   end_time - start_time
+# 
+#   ## 2019
+#   start_time <- Sys.time() #2 hrs
+#   dat_311_2019 <- read.socrata(
+#     "https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=created_date between '2019-01-01T00:00:00.001' and '2020-01-01T00:00:00.000'",
+#     app_token = "K7vd3wbyWNClKnbSYV8rje01b",
+#     email     = "amb10034@nyu.edu",
+#     password  = "6@5t7d!!$Kh$FyL"
+#   )
+#   end_time <- Sys.time()
+#   end_time - start_time
+# 
+# 
+#   ## write out
+#   write.csv(dat_311_2017, file = "~/Downloads/dat_311_2017.csv", row.names = FALSE)
+#   write.csv(dat_311_2018_1, file = "~/Downloads/dat_311_2018_1.csv", row.names = FALSE)
+#   write.csv(dat_311_2018_2, file = "~/Downloads/dat_311_2018_2.csv", row.names = FALSE)
+#   write.csv(dat_311_2019, file = "~/Downloads/dat_311_2019.csv", row.names = FALSE)
 ```
 
 
@@ -232,15 +235,34 @@ sheds <- left_join(sheds, sheds_norm, by = c("addr_join" = "raw_addr"))
 dat_311_2017 <- unique(dat_311_2017)
 sheds <- unique(sheds)
 
-# join data
+# drop shed status to only issued or re-issued, drop business type to corp or individual, or partnership
+sheds <- sheds %>% 
+  filter(`Permit Status` == "ISSUED" | 
+         `Permit Status` == "RE-ISSUED", 
+         `Owner's Business Type` == "CORPORATION" | 
+         `Owner's Business Type` == "INDIVIDUAL" | 
+          `Owner's Business Type` == "PARTNERSHIP")
 
+# change N/As in business name to NA
+sheds$`Owner's Business Name`[which(sheds$`Owner's Business Name` == "N/A")] <- NA
 
-# find match rate
-table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)
-table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)["TRUE"]/nrow(dat_311_2017_norm)
-  
-# unique matches
-nrow(table(unique(dat_311_2017_norm$z_addr_cat)))
+# add shed indicator (Open restaurants ordinance begins June 2020)
+dat_311_2017 <- dat_311_2017 %>% 
+  mutate(shed_flag = ifelse((z_addr_cat %in% sheds$z_addr_cat), 1, 0))
+
+# add business name
+dat_311_2017 <- dat_311_2017 %>% 
+  mutate(shed_biz = ifelse((shed_flag == 1), sheds$`Owner's Business Name`, NA))
+
+# write out intermediate csv
+# write.csv(dat_311_2017, file = "~/Downloads/dat_311_2017_addr.csv", row.names = FALSE)
+
+# # find match rate
+# table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)
+# table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)["TRUE"]/nrow(dat_311_2017_norm) #23%
+#   
+# # unique matches
+# nrow(table(unique(dat_311_2017_norm$z_addr_cat)))
 
 ```
 
@@ -254,6 +276,23 @@ nrow(table(unique(dat_311_2017_norm$z_addr_cat)))
 ## Summary statistics
 - Summary tables of complaint types
 ```{r}
+# 2017
+  ## table sheds and complaint type
+  table(dat_311_2017$shed_flag) # 23% of complaints in 2017 were from addresses that would later have sheds (preshed)
+  table(dat_311_2017$complaint_type)
+
+ ## comparing pre-shed and no shed
+  complaint_type_2017 <- dat_311_2017 %>% 
+    tabyl(complaint_type, shed_flag, 
+           show_na = TRUE) %>% 
+    adorn_totals("both") %>% 
+    adorn_percentages("col") %>%
+    adorn_pct_formatting(digits = 2) %>%
+    adorn_ns()
+  complaint_type_2017
+
+
+
 
 ```
 
@@ -296,5 +335,9 @@ complaint_type_tab19 <- as.data.frame(table(dat_311_2019$complaint_type, dat_311
 
   ## write out
   write.csv(complaint_type_tab19, file = "~/Downloads/complaint_type_tab19.csv", row.names = FALSE)
+  
+  
+  table(dat_311_2017$complaint_type[which(dat_311_2017$shed_flag==1)])
+  table(dat_311_2017$complaint_type[which(dat_311_2017$shed_flag==0)])
 ```
 
