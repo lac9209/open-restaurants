@@ -4,6 +4,11 @@ author: Anna Benoit & Lina Cook
 output: pdf_document
 ---
 
+## Notes 
+For lit review:
+- https://www.restaurantdive.com/news/91-of-nyc-restaurants-say-permanent-outdoor-dining-is-very-important-to/618770/
+- https://thecounter.org/dining-shed-banned-outdoor-restaurants-new-york-city-covid-19/
+
 ## Set up
 ```{r}
 # load R libraries
@@ -16,6 +21,8 @@ library(reticulate)
 library(data.table)
 library(XML)
 library(RSocrata)
+library(nominatimlite)
+library(spatialrisk)
 
 # load Python libraries
 reticulate::py_install("pandas")
@@ -85,13 +92,23 @@ normalize_address <- function(address_dat) {
 ## Import data
 ```{r}
 # Sheds
-sheds <- fread("~/Downloads/Sidewalk_Sheds.csv")
+#sheds <- fread("~/Downloads/Sidewalk_Sheds.csv")
+#sheds <- fread("~/Downloads/Active_Sheds2.csv")
 
 # Open restaurant application data
 open_resto <- fread("~/Downloads/Open_Restaurant_Applications.csv")
 
 # 2017
-dat_311_2017 <- fread("~/Downloads/dat_311_2017_exp.csv")
+# dat_311_2017 <- fread("~/Downloads/dat_311_2017_exp.csv")
+
+# sheds_geo
+sheds_geo <- fread("~/Downloads/shed_geo.csv")
+
+# intermediate exports
+dat_311_2017 <- fread("~/Downloads/dat_311_2017_addr.csv") %>% 
+  select(-shed_flag, -shed_biz)
+sheds_clean <- fread("~/Downloads/sheds_clean.csv")
+
 
 # # Parking violations
 # parking <- read.socrata("https://data.cityofnewyork.us/resource/2bnn-yakx.csv")
@@ -151,8 +168,9 @@ dat_311_2017 <- fread("~/Downloads/dat_311_2017_exp.csv")
 Complaint types of interest: Illegal Parking, Rodent, Noise - Street/Sidewalk, Noise - Commercial, Dirty Condition, Food Establishment (Descriptor: Rodents/Insects/Garbage)
 ```{r}
 # 2017
-dat_311_2017_exp <- dat_311_2017 %>% 
-  filter(complaint_type == 'Illegal Parking' | 
+dat_311_2017 <- dat_311_2017 %>% 
+  filter(
+         # complaint_type == 'Illegal Parking' | 
          complaint_type == 'Rodent' | 
          complaint_type == 'Noise - Street/Sidewalk' | 
          complaint_type == 'Noise - Commercial' | 
@@ -196,6 +214,15 @@ dat_311_2019_exp <- dat_311_2019 %>%
 
 ## Prepare for join
 ```{r}
+# drop parking violations for now
+dat_311_2017 <- dat_311_2017 %>% 
+  filter(complaint_type != "Illegal Parking")
+
+# Prep open resto data
+open_resto <- open_resto %>% 
+  rename(lat = Latitude, 
+         lon = Longitude)
+  
 # Filter and cat 311 data
 dat_311_2017 <- dat_311_2017 %>% 
   filter(address_type == "ADDRESS") %>% 
@@ -207,6 +234,13 @@ dat_311_2017 <- dat_311_2017 %>%
 sheds <- sheds %>% 
   unite(addr_join, c("House #", "Street Name",), sep = " ", remove = FALSE) %>% 
   unite(addr_join, c("addr_join", "Zip Code",), sep = ", New York, NY ", remove = FALSE)
+
+# Filter and cat open resto data
+open_resto <- open_resto %>% 
+  mutate(`Building Number` = ifelse(`Building Number`=="undefined", "", `Building Number`)) %>% 
+  unite(addr_join, c("Building Number", "Street"), sep = " ", remove = FALSE) %>% 
+  unite(addr_join, c("addr_join", "Postcode"), sep = ", New York, NY ", remove = FALSE)
+
 ```
 
 
@@ -215,12 +249,16 @@ sheds <- sheds %>%
 # normalize data
 dat_311_2017_norm <- normalize_address(dat_311_2017$addr_join)
 sheds_norm <- normalize_address(sheds$addr_join)
+open_resto_norm <- normalize_address(open_resto$addr_join)
 
 # clean normalized data by dropping errors
 dat_311_2017_norm <- dat_311_2017_norm %>% 
   filter(address_line_1 != "ERROR") # 242,980 obs remaining
 
 sheds_norm <- sheds_norm %>% 
+  filter(address_line_1 != "ERROR") # 171,272 obs remaining
+
+open_resto_norm <- open_resto_norm %>% 
   filter(address_line_1 != "ERROR") # 171,272 obs remaining
 ```
 
@@ -230,37 +268,48 @@ sheds_norm <- sheds_norm %>%
 # attach cleaned address field 
 dat_311_2017 <- left_join(dat_311_2017, dat_311_2017_norm, by = c("addr_join" = "raw_addr"))
 sheds <- left_join(sheds, sheds_norm, by = c("addr_join" = "raw_addr"))
+open_resto <- left_join(open_resto, open_resto_norm, by = c("addr_join" = "raw_addr"))
 
 # drop duplicates 
 dat_311_2017 <- unique(dat_311_2017)
 sheds <- unique(sheds)
+open_resto <- unique(open_resto) #13,252 obs
 
-# drop shed status to only issued or re-issued, drop business type to corp or individual, or partnership
-sheds <- sheds %>% 
-  filter(`Permit Status` == "ISSUED" | 
-         `Permit Status` == "RE-ISSUED", 
-         `Owner's Business Type` == "CORPORATION" | 
-         `Owner's Business Type` == "INDIVIDUAL" | 
-          `Owner's Business Type` == "PARTNERSHIP")
-
-# change N/As in business name to NA
-sheds$`Owner's Business Name`[which(sheds$`Owner's Business Name` == "N/A")] <- NA
+# find match rate
+table(open_resto$z_addr_cat %in% dat_311_2017$z_addr_cat)
+table(open_resto$z_addr_cat %in% dat_311_2017$z_addr_cat)["TRUE"]/nrow(dat_311_2017) #28%
 
 # add shed indicator (Open restaurants ordinance begins June 2020)
 dat_311_2017 <- dat_311_2017 %>% 
-  mutate(shed_flag = ifelse((z_addr_cat %in% sheds$z_addr_cat), 1, 0))
+   mutate(shed_flag = ifelse((z_addr_cat %in% open_resto$z_addr_cat), 1, 0)) # 19,100/133,616 (14%)
 
-# add business name
-dat_311_2017 <- dat_311_2017 %>% 
-  mutate(shed_biz = ifelse((shed_flag == 1), sheds$`Owner's Business Name`, NA))
+
+# drop shed status to only issued or re-issued, drop business type to corp or individual, or partnership
+# sheds <- sheds %>% 
+#   filter(`Permit Status` == "ISSUED" | 
+#          `Permit Status` == "RE-ISSUED", 
+#          `Owner's Business Type` == "CORPORATION" | 
+#          `Owner's Business Type` == "INDIVIDUAL" | 
+#           `Owner's Business Type` == "PARTNERSHIP")
+
+# sheds <- sheds %>% 
+#    filter(activity == "Construction or Maintenance")
+
+# # change N/As in business name to NA
+# sheds$`Owner's Business Name`[which(sheds$`Owner's Business Name` == "N/A")] <- NA
+
+# # add business name
+# dat_311_2017 <- dat_311_2017 %>% 
+#   mutate(shed_biz = ifelse((shed_flag == 1), sheds$`Owner's Business Name`, NA))
 
 # write out intermediate csv
 # write.csv(dat_311_2017, file = "~/Downloads/dat_311_2017_addr.csv", row.names = FALSE)
+# write.csv(sheds, file = "~/Downloads/sheds_clean.csv", row.names = FALSE)
 
 # # find match rate
 # table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)
 # table(sheds_norm$z_addr_cat %in% dat_311_2017_norm$z_addr_cat)["TRUE"]/nrow(dat_311_2017_norm) #23%
-#   
+
 # # unique matches
 # nrow(table(unique(dat_311_2017_norm$z_addr_cat)))
 
@@ -269,6 +318,64 @@ dat_311_2017 <- dat_311_2017 %>%
 
 ## Join on lat-long
 ```{r}
+# # geocode shed data
+# shed_geo <- geo_lite(address = sheds$z_addr_cat)
+
+# write out
+# write.csv(shed_geo, "~/Downloads/shed_geo.csv", row.names=F)
+
+# join
+  ## clean up for join
+  sheds_geo <- unique(sheds_geo)
+  sheds_geo <- sheds_geo %>% 
+    filter(complete.cases(.))
+
+  sheds_geo <- sheds_geo %>%
+    rename(z_addr_cat=query)
+  
+  ## write out
+  # write.csv(sheds_geo, "~/Downloads/sheds_geo_clean", row.names=F)
+  
+  ## join
+  # sheds_geo_clean <- full_join(sheds_clean, sheds_geo, by="z_addr_cat")
+  
+  ## get unique cases
+  # sheds_geo_clean <- unique(sheds_geo_clean)
+  
+  ## write out
+  # write.csv(sheds_geo_clean, "~/Downloads/sheds_geo_clean", row.names=F)
+
+```
+
+
+## Radius tagging
+```{r}
+dat_311_2017 <- dat_311_2017 %>% 
+  rename(lat = latitude,
+         lon = longitude) # 252,010 obs
+
+dat_311_2017 <- dat_311_2017 %>% 
+  mutate(count = 1)
+
+open_resto <- open_resto %>%
+  mutate(count = 1)
+
+dat_311_2017 <- concentration(dat_311_2017, open_resto, value = count, radius = 15)
+
+dat_311_2017 <- dat_311_2017 %>% 
+  mutate(shed_flag_rad = ifelse(concentration >= 1, 1, 0)) # 31,625/133,616 (23%)
+
+# sheds_geo <- sheds_geo %>% 
+#   mutate(count = 1)
+
+#sheds_geo2 <- left_join(sheds_geo, sheds, by = "z_addr_cat")
+
+# sheds_conc <- concentration(sheds_geo, dat_311_2017, value = count, radius = 25)
+
+# dat_2017_conc <- concentration(dat_311_2017, sheds_geo, value = count, radius = 15)
+# 
+# dat_2017_conc <- dat_2017_conc %>% 
+#   mutate(shed_flag_rad = ifelse(concentration >= 1, 1, 0))
 
 ```
 
@@ -292,8 +399,36 @@ dat_311_2017 <- dat_311_2017 %>%
   complaint_type_2017
 
 
+# 2018
+  ## table sheds and complaint type
+  table(dat_311_2018$shed_flag) # 23% of complaints in 2017 were from addresses that would later have sheds (preshed)
+  table(dat_311_2018$complaint_type)
 
+ ## comparing pre-shed and no shed
+  complaint_type_2018 <- dat_311_2018 %>% 
+    tabyl(complaint_type, shed_flag, 
+           show_na = TRUE) %>% 
+    adorn_totals("both") %>% 
+    adorn_percentages("col") %>%
+    adorn_pct_formatting(digits = 2) %>%
+    adorn_ns()
+  complaint_type_2018
 
+  
+# 2019
+  ## table sheds and complaint type
+  table(dat_311_2019$shed_flag) # 23% of complaints in 2017 were from addresses that would later have sheds (preshed)
+  table(dat_311_2019$complaint_type)
+
+ ## comparing pre-shed and no shed
+  complaint_type_2019 <- dat_311_2019 %>% 
+    tabyl(complaint_type, shed_flag, 
+           show_na = TRUE) %>% 
+    adorn_totals("both") %>% 
+    adorn_percentages("col") %>%
+    adorn_pct_formatting(digits = 2) %>%
+    adorn_ns()
+  complaint_type_2019
 ```
 
 - Year over year changes in each complaint type
