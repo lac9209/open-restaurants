@@ -1,0 +1,77 @@
+---
+title: "Lina's Analysis"
+author: "Lina Cook"
+date: "4/21/2022"
+output: pdf_document
+---
+
+```{r}
+# load R libraries
+library(janitor)
+library(broom)
+library(tidyverse)
+library(tidyr)
+library(kableExtra)
+library(reticulate)
+library(data.table)
+library(XML)
+library(RSocrata)
+library(nominatimlite)
+library(spatialrisk)
+
+# load Python libraries
+reticulate::py_install("pandas")
+reticulate::py_install("usaddress")
+reticulate::py_install("usaddress-scourgify", pip=TRUE)
+```
+
+```{r helper functions}
+# address objects
+usaddress <- reticulate::import('usaddress')
+scourgify <- reticulate::import('scourgify')
+
+# FCN: normalize addresses
+
+# function to usaddress-scourgify that normalizes addresses and returns
+# a datatable of normalized addresses
+normalize_address <- function(address_dat) {
+  
+  ## throw error if scourgify module is not imported
+  if (! reticulate::py_module_available('scourgify')) {
+    stop('The scourgify python module is not available in the default Python installation\n',
+         'Install the usddress-scourgify module in R by calling:\n    reticulate::py_install("usaddress-scourgify",pip=TRUE)')
+  }
+  
+  ## create object using purrr to specify how errors will be treated
+  ##  in this case, errors will print "ERROR" across all address fields.
+  poss_norm_addr <- purrr::possibly(.f = scourgify$normalize_address_record, otherwise = "ERROR")
+  
+  ## pass addresses to scourgify, which normalizes addresses
+  ## according to US Post Office conventions.
+  norm_addr <- furrr::future_map(address_dat, poss_norm_addr)
+  
+  ## bind list to dataframe for easier handling
+  z_address_df <- as.data.frame(do.call(rbind, norm_addr))
+  
+  ## concatenate and edit output
+  z_address_df <- z_address_df %>%
+    ## trim postal codes
+    mutate(postal_code = strtrim(z_address_df$postal_code, 5)) %>%
+    ## concatenate
+    unite(col = z_addr_cat, 1:5, sep = ", ", remove = FALSE, na.rm = TRUE) %>%
+    ## move the concatenated, normalized address field to the first column
+    dplyr::relocate(z_addr_cat, .before = address_line_1)
+
+  ## remove NULL values
+    ## from concatenated address field
+    z_address_df$z_addr_cat <- gsub("NULL, ", "", z_address_df$z_addr_cat)
+    ## from all other areas in dataframe
+    z_address_df <- map_df(z_address_df, ~ gsub("NULL", "", .x))
+
+  ## add raw address back on to results
+  z_address_df <- cbind(address_dat, z_address_df) %>%
+    rename(raw_addr = address_dat)
+  
+}
+```
+
