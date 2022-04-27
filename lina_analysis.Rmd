@@ -84,8 +84,10 @@ dat_311 <- read.csv("./data/dat_311_combined.csv")
 ## Make year variable, make created_date into date variable
 dat_311 <- dat_311 %>% 
   mutate(year = as.numeric(substr(created_date, start = 1, stop = 4)),
-         month = 
+         month = as.numeric(substr(created_date, start = 6, stop = 7)),
          created_date = as.Date(created_date, format = "%Y-%m-%d"),
+         latlong = paste0(round(latitude, 4), ", ", 
+                   round(longitude, 4)),
          after_2020 = case_when(
            year < 2020 ~ 0,
            year >= 2020 ~ 1))
@@ -99,22 +101,23 @@ dat_or <- read.csv("./data/Open_Restaurant_Applications.csv")
 ```
 
 ```{r}
-## Summary Tables
-dat_311_pre %>% 
-  group_by(complaint_type) %>% 
-  summarise(
-    count = n()
-  )
-
-dat_311_post %>% 
-  group_by(complaint_type) %>% 
-  summarise(
-    count = n()
-  )
+## Summary Table
+# dat_311_pre %>% 
+#   group_by(complaint_type) %>% 
+#   summarise(
+#     count = n()
+#   )
+# 
+# dat_311_post %>% 
+#   group_by(complaint_type) %>% 
+#   summarise(
+#     count = n()
+#   )
 
 table(dat_311$complaint_type, dat_311$after_2020)
 ```
 ```{r}
+## Plot of overall number of 311 calls by day
 count <- dat_311 %>% 
   count(created_date) %>% 
   mutate(year = as.numeric(substr(created_date, 1, 4)),
@@ -124,9 +127,11 @@ count <- dat_311 %>%
          ))
 
 ggplot(data = count, aes(x = created_date, y = n)) +
-  geom_line()
+  geom_line() +
+  labs(x = "Date", y = "Count of 311 calls")
 ```
 ```{r}
+## Plot of overall 311 calls per day by complaint type
 count2 <- dat_311 %>% 
   group_by(complaint_type) %>% 
   count(created_date) %>% 
@@ -137,20 +142,50 @@ count2 <- dat_311 %>%
          ))
 
 ggplot(data = count2, aes(x = created_date, y = n, color = complaint_type)) +
-  geom_line(alpha = 0.5)
+  geom_line(alpha = 0.5) +
+  labs(x = "Date", y = "Count of 311 calls",
+       color = "Complaint Type")
+```
+
+```{r}
+## Plot of overall 311 calls per day by complaint type
+ggplot(count2, aes(created_date, n)) + 
+  geom_line() + 
+  facet_wrap(~ complaint_type) +
+  labs(x = "Date", y = "Count of 311 calls")
+```
+
+```{r}
+## Make df of unique lat-long restaurant coordinates (rounded to 3 decimals for radius)
+latlong_or <- tibble(
+  latlong = paste0(round(dat_or$Latitude, 4), ", ", 
+                   round(dat_or$Longitude, 4))) %>% 
+  filter(latlong != "NA, NA") %>% 
+  unique()
+
+## Evaluate if each 311 lat-long is in the unique O.R. lat-long's
+dat_311$shed <- dat_311$latlong %in% latlong_or$latlong
+dat_311_pre$shed <- dat_311_pre$latlong %in% latlong_or$latlong
+dat_311_post$shed <- dat_311_post$latlong %in% latlong_or$latlong
+```
+
+```{r}
+table(dat_311_pre$shed)
+table(dat_311_pre$shed)/nrow(dat_311_pre)*100
+```
+
+```{r}
+table(dat_311_post$shed)
+table(dat_311_post$shed)/nrow(dat_311_post)*100
 ```
 
 
 
-
-
-
 ```{r}
-## Make coordinate matrix
+## Make map of NYC using lat-long: not great
 # x = rows = latitude, from = 40.49912, to = 40.91346
 # y = columns = longitude, from = -74.25453, to = -73.7006
 
-## Map
 states <- map_data("state")
 NY <- subset(states, region %in% c("new york"))
 NYC <- filter(NY, long <= -73.7006 & long >= -74.25453 & 
@@ -160,7 +195,7 @@ NY_county <- subset(counties, region == "new york")
 remove(states, counties)
 
 
-
+## Map plot, not looking the best if I'm honest
 ggplot(data = NYC, mapping = aes(x = long, y = lat, group = group)) + 
   coord_fixed(1.3) + 
   geom_polygon(color = "black", fill = NA) + 
