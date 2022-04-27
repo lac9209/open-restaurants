@@ -23,9 +23,9 @@ library(ggmap)
 library(mapdata)
 
 # load Python libraries
-reticulate::py_install("pandas")
-reticulate::py_install("usaddress")
-reticulate::py_install("usaddress-scourgify", pip=TRUE)
+#reticulate::py_install("pandas")
+#reticulate::py_install("usaddress")
+#reticulate::py_install("usaddress-scourgify", pip=TRUE)
 ```
 
 ```{r helper functions}
@@ -86,8 +86,8 @@ dat_311 <- dat_311 %>%
   mutate(year = as.numeric(substr(created_date, start = 1, stop = 4)),
          month = as.numeric(substr(created_date, start = 6, stop = 7)),
          created_date = as.Date(created_date, format = "%Y-%m-%d"),
-         latlong = paste0(round(latitude, 4), ", ", 
-                   round(longitude, 4)),
+         latlong = paste0(round(latitude, 3), ", ", 
+                   round(longitude, 3)),
          after_2020 = case_when(
            year < 2020 ~ 0,
            year >= 2020 ~ 1))
@@ -116,6 +116,8 @@ dat_or <- read.csv("./data/Open_Restaurant_Applications.csv")
 
 table(dat_311$complaint_type, dat_311$after_2020)
 ```
+
+
 ```{r}
 ## Plot of overall number of 311 calls by day
 count <- dat_311 %>% 
@@ -158,8 +160,8 @@ ggplot(count2, aes(created_date, n)) +
 ```{r}
 ## Make df of unique lat-long restaurant coordinates (rounded to 3 decimals for radius)
 latlong_or <- tibble(
-  latlong = paste0(round(dat_or$Latitude, 4), ", ", 
-                   round(dat_or$Longitude, 4))) %>% 
+  latlong = paste0(round(dat_or$Latitude, 3), ", ", 
+                   round(dat_or$Longitude, 3))) %>% 
   filter(latlong != "NA, NA") %>% 
   unique()
 
@@ -178,7 +180,15 @@ table(dat_311_pre$shed)/nrow(dat_311_pre)*100
 table(dat_311_post$shed)
 table(dat_311_post$shed)/nrow(dat_311_post)*100
 ```
+```{r}
+round(table(dat_311_post$complaint_type,
+            dat_311_post$shed)/nrow(dat_311_post)*100, 3)
+```
 
+```{r}
+round(table(dat_311_pre$complaint_type, 
+            dat_311_pre$shed)/nrow(dat_311_pre)*100, 3)
+```
 
 
 ```{r}
