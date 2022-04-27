@@ -5,7 +5,7 @@ date: "4/21/2022"
 output: pdf_document
 ---
 
-```{r}
+```{r, message = FALSE}
 # load R libraries
 library(janitor)
 library(broom)
@@ -18,6 +18,9 @@ library(XML)
 library(RSocrata)
 library(nominatimlite)
 library(spatialrisk)
+library(maps)
+library(ggmap)
+library(mapdata)
 
 # load Python libraries
 reticulate::py_install("pandas")
@@ -73,5 +76,97 @@ normalize_address <- function(address_dat) {
     rename(raw_addr = address_dat)
   
 }
+```
+
+```{r}
+## Read in data
+dat_311 <- read.csv("./data/dat_311_combined.csv")
+## Make year variable, make created_date into date variable
+dat_311 <- dat_311 %>% 
+  mutate(year = as.numeric(substr(created_date, start = 1, stop = 4)),
+         month = 
+         created_date = as.Date(created_date, format = "%Y-%m-%d"),
+         after_2020 = case_when(
+           year < 2020 ~ 0,
+           year >= 2020 ~ 1))
+
+## Create datasets of before or after 2020
+dat_311_pre <- filter(dat_311, year < 2020)
+dat_311_post <- filter(dat_311, year >= 2020)
+
+## Read in Open Restaurant Applications
+dat_or <- read.csv("./data/Open_Restaurant_Applications.csv")
+```
+
+```{r}
+## Summary Tables
+dat_311_pre %>% 
+  group_by(complaint_type) %>% 
+  summarise(
+    count = n()
+  )
+
+dat_311_post %>% 
+  group_by(complaint_type) %>% 
+  summarise(
+    count = n()
+  )
+
+table(dat_311$complaint_type, dat_311$after_2020)
+```
+```{r}
+count <- dat_311 %>% 
+  count(created_date) %>% 
+  mutate(year = as.numeric(substr(created_date, 1, 4)),
+         after_2020 = case_when(
+           year < 2020 ~ 0,
+           year >= 2020 ~ 1
+         ))
+
+ggplot(data = count, aes(x = created_date, y = n)) +
+  geom_line()
+```
+```{r}
+count2 <- dat_311 %>% 
+  group_by(complaint_type) %>% 
+  count(created_date) %>% 
+  mutate(year = as.numeric(substr(created_date, 1, 4)),
+         after_2020 = case_when(
+           year < 2020 ~ 0,
+           year >= 2020 ~ 1
+         ))
+
+ggplot(data = count2, aes(x = created_date, y = n, color = complaint_type)) +
+  geom_line(alpha = 0.5)
+```
+
+
+
+
+
+
+```{r}
+## Make coordinate matrix
+# x = rows = latitude, from = 40.49912, to = 40.91346
+# y = columns = longitude, from = -74.25453, to = -73.7006
+
+## Map
+states <- map_data("state")
+NY <- subset(states, region %in% c("new york"))
+NYC <- filter(NY, long <= -73.7006 & long >= -74.25453 & 
+                lat <= 40.91346 & lat >= 40.49912)
+counties <- map_data("county")
+NY_county <- subset(counties, region == "new york")
+remove(states, counties)
+
+
+
+ggplot(data = NYC, mapping = aes(x = long, y = lat, group = group)) + 
+  coord_fixed(1.3) + 
+  geom_polygon(color = "black", fill = NA) + 
+  theme_void() + 
+  geom_polygon(data = NY_county, #aes(fill = sqrt(residence_count)), 
+               color = "black")
+
 ```
 
