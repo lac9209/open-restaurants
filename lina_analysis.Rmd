@@ -206,13 +206,37 @@ table(dat_311_post$shed)/nrow(dat_311_post)*100
 ```
 ```{r}
 round(table(dat_311_post$complaint_type,
-            dat_311_post$shed)/nrow(dat_311_post)*100, 3)
+            dat_311_post$shed), 3)
+
+18872/(387047+18872)
 ```
 
 ```{r}
 round(table(dat_311_pre$complaint_type, 
             dat_311_pre$shed)/nrow(dat_311_pre)*100, 3)
 ```
+
+```{r}
+test <- dat_311_no_shed %>% 
+  filter(complaint_type == "Noise - Street/Sidewalk",
+         created_date < as.Date("06-01-2020", format = "%m-%d-%Y") |
+           created_date > as.Date("06-30-2020", format = "%m-%d-%Y")) %>% 
+  count(created_date) %>% 
+  mutate(year = as.numeric(substr(created_date, 1, 4)),
+         after_june2020 = case_when(
+           created_date < as.Date("06-01-2020", format = "%m-%d-%Y") ~ FALSE,
+           created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
+         ))
+
+ggplot(data = test, 
+       aes(x = created_date, y = n, color = as.factor(after_june2020))) +
+  geom_point() +
+  #geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
+  #geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")#,
+       #title = "RD of Street Noise Complaints")
+```
+
 
 ```{r}
 ## RD 1: Full data (no parking)
@@ -228,7 +252,7 @@ counts_shed <- dat_311_no_park %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm1 <- lm(n ~ created_date + after_june2020, data = counts_shed)
+lm1 <- lm(n ~ created_date * after_june2020, data = counts_shed)
 summary(lm1)
 ```
 ```{r}
@@ -238,20 +262,21 @@ n_post <- length(which(counts_shed$after_june2020 == TRUE))
 
 x1 <- as.Date("01-01-2017", format = "%m-%d-%Y")
 x2 <- as.Date("05-31-2020", format = "%m-%d-%Y")
-y1 <- lm1$coefficients[1] - 198
-y2 <- lm1$coefficients[1] + n_prior*lm1$coefficients[2] - 198
+y1 <- lm1$coefficients[1] - 150
+y2 <- lm1$coefficients[1] + n_prior*lm1$coefficients[2] - 150
 
 x3 = as.Date("07-01-2020", format = "%m-%d-%Y")
 x4 = as.Date("04-03-2022", format = "%m-%d-%Y")
-y3 = lm1$coefficients[1] + (n_prior+30)*lm1$coefficients[2] + lm1$coefficients[3] - 198
-y4 = lm1$coefficients[1] + n_post*lm1$coefficients[2] + lm1$coefficients[3] - 198
+y3 = lm1$coefficients[1] + (n_prior+30)*(lm1$coefficients[2] + lm1$coefficients[4]) + lm1$coefficients[3] - 598
+y4 = lm1$coefficients[1] + (n_prior+30+n_post)*(lm1$coefficients[2] + lm1$coefficients[4]) + lm1$coefficients[3] - 598
 
 
 ggplot(data = counts_shed, aes(x = created_date, y = n, color = as.factor(after_june2020))) +
   geom_point() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of All Complaints")
 ```
 
 ```{r}
@@ -268,27 +293,29 @@ counts_shed_food <- dat_311_shed %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm2 <- lm(n ~ created_date + after_june2020, data = counts_shed_food)
+lm2 <- lm(n ~ created_date * after_june2020, data = counts_shed_food)
 summary(lm2)
 ```
+
 ```{r}
 ## plot lm2
 n_prior <- length(which(counts_shed_food$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_food$after_june2020 == TRUE))
 
-y1 <- lm2$coefficients[1] + 11
-y2 <- lm2$coefficients[1] + n_prior*lm2$coefficients[2] + 11
+y1 <- lm2$coefficients[1] + 3
+y2 <- lm2$coefficients[1] + n_prior*lm2$coefficients[2] + 3
 
-y3 = lm2$coefficients[1] + (n_prior+30)*lm2$coefficients[2] + lm2$coefficients[3] + 11
-y4 = lm2$coefficients[1] + n_post*lm2$coefficients[2] + lm2$coefficients[3] + 11
+y3 = lm2$coefficients[1] + (n_prior+30)*(lm2$coefficients[2] + lm2$coefficients[4]) + lm2$coefficients[3] + 70
+y4 = lm2$coefficients[1] + (n_prior+30+n_post)*(lm2$coefficients[2] + lm2$coefficients[4]) + lm2$coefficients[3] + 70
 
 
 ggplot(data = counts_shed_food, 
        aes(x = created_date, y = n, color = as.factor(after_june2020))) +
-  geom_point() +
+  geom_jitter() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of Food Establishment Complaints")
 ```
 
 
@@ -306,7 +333,7 @@ counts_shed_comm <- dat_311_shed %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm3 <- lm(n ~ created_date + after_june2020, data = counts_shed_comm)
+lm3 <- lm(n ~ created_date * after_june2020, data = counts_shed_comm)
 summary(lm3)
 ```
 ```{r}
@@ -314,11 +341,11 @@ summary(lm3)
 n_prior <- length(which(counts_shed_comm$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_comm$after_june2020 == TRUE))
 
-y1 <- lm3$coefficients[1] -270
-y2 <- lm3$coefficients[1] + n_prior*lm3$coefficients[2] -270
+y1 <- lm3$coefficients[1] -255
+y2 <- lm3$coefficients[1] + n_prior*lm3$coefficients[2] -255
 
-y3 = lm3$coefficients[1] + (n_prior+30)*lm3$coefficients[2] + lm3$coefficients[3] -270
-y4 = lm3$coefficients[1] + n_post*lm3$coefficients[2] + lm3$coefficients[3] -270
+y3 = lm3$coefficients[1] + (n_prior+30)*(lm3$coefficients[2] + lm3$coefficients[4]) + lm3$coefficients[3] -340
+y4 = lm3$coefficients[1] + (n_prior+30+n_post)*(lm3$coefficients[2] + lm3$coefficients[4]) + lm3$coefficients[3] -340
 
 
 ggplot(data = counts_shed_comm, 
@@ -326,7 +353,8 @@ ggplot(data = counts_shed_comm,
   geom_point() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of Commercial Street Noise Complaints")
 ```
 
 ```{r}
@@ -343,7 +371,7 @@ counts_shed_street <- dat_311_shed %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm4 <- lm(n ~ created_date + after_june2020, data = counts_shed_street)
+lm4 <- lm(n ~ created_date * after_june2020, data = counts_shed_street)
 summary(lm4)
 ```
 ```{r}
@@ -351,11 +379,11 @@ summary(lm4)
 n_prior <- length(which(counts_shed_street$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_street$after_june2020 == TRUE))
 
-y1 <- lm4$coefficients[1] +11
-y2 <- lm4$coefficients[1] + n_prior*lm4$coefficients[2] +11
+y1 <- lm4$coefficients[1] +90
+y2 <- lm4$coefficients[1] + n_prior*lm4$coefficients[2] +90
 
-y3 = lm4$coefficients[1] + (n_prior+30)*lm4$coefficients[2] + lm4$coefficients[3] +11
-y4 = lm4$coefficients[1] + n_post*lm4$coefficients[2] + lm4$coefficients[3] +11
+y3 = lm4$coefficients[1] + (n_prior+30)*(lm4$coefficients[2]+lm4$coefficients[4]) + lm4$coefficients[3] -565
+y4 = lm4$coefficients[1] + (n_prior+30+n_post)*(lm4$coefficients[2]+lm4$coefficients[4]) + lm4$coefficients[3] -565
 
 
 ggplot(data = counts_shed_street, 
@@ -363,7 +391,8 @@ ggplot(data = counts_shed_street,
   geom_point() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of Street Noise Complaints")
 ```
 
 
@@ -381,7 +410,7 @@ counts_shed_rodent <- dat_311_shed %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm5 <- lm(n ~ created_date + after_june2020, data = counts_shed_rodent)
+lm5 <- lm(n ~ created_date * after_june2020, data = counts_shed_rodent)
 summary(lm5)
 ```
 ```{r}
@@ -389,19 +418,20 @@ summary(lm5)
 n_prior <- length(which(counts_shed_rodent$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_rodent$after_june2020 == TRUE))
 
-y1 <- lm5$coefficients[1] +13
-y2 <- lm5$coefficients[1] + n_prior*lm5$coefficients[2] +13
+y1 <- lm5$coefficients[1] +8
+y2 <- lm5$coefficients[1] + n_prior*lm5$coefficients[2] +8
 
-y3 = lm5$coefficients[1] + (n_prior+30)*lm5$coefficients[2] + lm5$coefficients[3] +13
-y4 = lm5$coefficients[1] + n_post*lm5$coefficients[2] + lm5$coefficients[3] +13
+y3 = lm5$coefficients[1] + (n_prior+30)*(lm5$coefficients[2]+lm5$coefficients[4]) + lm5$coefficients[3] +51
+y4 = lm5$coefficients[1] + (n_prior+30+n_post)*(lm5$coefficients[2]+lm5$coefficients[4]) + lm5$coefficients[3] +51
 
 
 ggplot(data = counts_shed_rodent, 
        aes(x = created_date, y = n, color = as.factor(after_june2020))) +
-  geom_point() +
+  geom_jitter() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of Rodent Complaints")
 ```
 
 
@@ -420,7 +450,7 @@ counts_shed_parking <- dat_311_parking %>%
            created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
          ))
 
-lm6 <- lm(n ~ created_date + after_june2020, data = counts_shed_parking)
+lm6 <- lm(n ~ created_date * after_june2020, data = counts_shed_parking)
 summary(lm6)
 ```
 
@@ -429,11 +459,11 @@ summary(lm6)
 n_prior <- length(which(counts_shed_parking$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_parking$after_june2020 == TRUE))
 
-y1 <- lm6$coefficients[1] +3200
-y2 <- lm6$coefficients[1] + n_prior*lm6$coefficients[2] +3200
+y1 <- lm6$coefficients[1] +1750
+y2 <- lm6$coefficients[1] + n_prior*lm6$coefficients[2] +1750
 
-y3 = lm6$coefficients[1] + (n_prior+30)*lm6$coefficients[2] + lm6$coefficients[3] +3000
-y4 = lm6$coefficients[1] + n_post*lm6$coefficients[2] + lm6$coefficients[3] +3550
+y3 = lm6$coefficients[1] + (n_prior+30)*(lm6$coefficients[2] + lm6$coefficients[4]) + lm6$coefficients[3] +13650
+y4 = lm6$coefficients[1] + (n_prior+30+n_post)*(lm6$coefficients[2] + lm6$coefficients[4]) + lm6$coefficients[3] +13650
 
 
 ggplot(data = counts_shed_parking, 
@@ -441,31 +471,9 @@ ggplot(data = counts_shed_parking,
   geom_point() +
   geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), color = "black") +
   geom_segment(aes(x = x3, y = y3, xend = x4, yend = y4), color = "black") +
-  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020")
+  labs(x = "Date", y = "Counts of 311 Calls", color = "After June 2020",
+       title = "RD of Illegal Parking Complaints")
 ```
-
-
-
-```{r}
-## TEST: Dirty Condition
-
-counts_shed_dirty <- dat_311_shed %>% 
-  filter(complaint_type == "Dirty Condition",
-         created_date < as.Date("06-01-2020", format = "%m-%d-%Y") |
-           created_date > as.Date("06-30-2020", format = "%m-%d-%Y")) %>% 
-  count(created_date) %>% 
-  mutate(year = as.numeric(substr(created_date, 1, 4)),
-         after_june2020 = case_when(
-           created_date < as.Date("06-01-2020", format = "%m-%d-%Y") ~ FALSE,
-           created_date > as.Date("06-30-2020", format = "%m-%d-%Y") ~ TRUE
-         ))
-
-table(counts_shed_dirty$after_june2020)
-
-#lm6 <- lm(n ~ created_date + after_june2020, data = counts_shed_parking)
-#summary(lm6)
-```
-
 
 
 ```{r}
