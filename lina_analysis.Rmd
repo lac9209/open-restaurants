@@ -205,10 +205,15 @@ table(dat_311_post$shed)
 table(dat_311_post$shed)/nrow(dat_311_post)*100
 ```
 ```{r}
-round(table(dat_311_post$complaint_type,
-            dat_311_post$shed), 3)
+#round(table(dat_311_post$complaint_type,
+#            dat_311_post$shed)/nrow(dat_311_post)*100, 3)
 
-18872/(387047+18872)
+table(dat_311_post$complaint_type[which(dat_311_post$shed == FALSE)])/length(which(dat_311_post$shed == FALSE))*100
+
+
+
+round(table(dat_311$after_2020, dat_311$complaint_type)/c(nrow(dat_311_pre), nrow(dat_311_post))*100, 3)
+#18872/(387047+18872)
 ```
 
 ```{r}
