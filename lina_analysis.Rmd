@@ -256,19 +256,25 @@ lm1 <- lm(n ~ created_date * after_june2020, data = counts_shed)
 summary(lm1)
 ```
 ```{r}
+lm1$coefficients[1] + (as.Date("2017-01-01") - as.Date("1970-01-01"))*lm1$coefficients[2]
+```
+
+
+```{r}
 ## plot lm1
+hold <- as.Date("2017-01-01") - as.Date("1970-01-01")
 n_prior <- length(which(counts_shed$after_june2020 == FALSE))
 n_post <- length(which(counts_shed$after_june2020 == TRUE))
 
 x1 <- as.Date("01-01-2017", format = "%m-%d-%Y")
 x2 <- as.Date("05-31-2020", format = "%m-%d-%Y")
-y1 <- lm1$coefficients[1] - 150
-y2 <- lm1$coefficients[1] + n_prior*lm1$coefficients[2] - 150
+y1 <- lm1$coefficients[1] + hold*lm1$coefficients[2]
+y2 <- y1 + n_prior*lm1$coefficients[2]
 
 x3 = as.Date("07-01-2020", format = "%m-%d-%Y")
 x4 = as.Date("04-03-2022", format = "%m-%d-%Y")
-y3 = lm1$coefficients[1] + (n_prior+30)*(lm1$coefficients[2] + lm1$coefficients[4]) + lm1$coefficients[3] - 598
-y4 = lm1$coefficients[1] + (n_prior+30+n_post)*(lm1$coefficients[2] + lm1$coefficients[4]) + lm1$coefficients[3] - 598
+y3 = y2 + (hold+n_prior+30)*lm1$coefficients[4] + lm1$coefficients[3]
+y4 = y3 + n_post*(lm1$coefficients[2] + lm1$coefficients[4])
 
 
 ggplot(data = counts_shed, aes(x = created_date, y = n, color = as.factor(after_june2020))) +
@@ -302,11 +308,11 @@ summary(lm2)
 n_prior <- length(which(counts_shed_food$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_food$after_june2020 == TRUE))
 
-y1 <- lm2$coefficients[1] + 3
-y2 <- lm2$coefficients[1] + n_prior*lm2$coefficients[2] + 3
+y1 <- lm2$coefficients[1] + hold*lm2$coefficients[2]
+y2 <- y1 + n_prior*lm2$coefficients[2]
 
-y3 = lm2$coefficients[1] + (n_prior+30)*(lm2$coefficients[2] + lm2$coefficients[4]) + lm2$coefficients[3] + 70
-y4 = lm2$coefficients[1] + (n_prior+30+n_post)*(lm2$coefficients[2] + lm2$coefficients[4]) + lm2$coefficients[3] + 70
+y3 = y2 + (hold+n_prior+30)*lm2$coefficients[4] + lm2$coefficients[3]
+y4 = y3 + n_post*(lm2$coefficients[2] + lm2$coefficients[4])
 
 
 ggplot(data = counts_shed_food, 
@@ -341,11 +347,11 @@ summary(lm3)
 n_prior <- length(which(counts_shed_comm$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_comm$after_june2020 == TRUE))
 
-y1 <- lm3$coefficients[1] -255
-y2 <- lm3$coefficients[1] + n_prior*lm3$coefficients[2] -255
+y1 <- lm3$coefficients[1] + hold*lm3$coefficients[2]
+y2 <- y1 + n_prior*lm3$coefficients[2]
 
-y3 = lm3$coefficients[1] + (n_prior+30)*(lm3$coefficients[2] + lm3$coefficients[4]) + lm3$coefficients[3] -340
-y4 = lm3$coefficients[1] + (n_prior+30+n_post)*(lm3$coefficients[2] + lm3$coefficients[4]) + lm3$coefficients[3] -340
+y3 = y2 + (hold+n_prior+30)*lm3$coefficients[4] + lm3$coefficients[3]
+y4 = y3 + n_post*(lm3$coefficients[2] + lm3$coefficients[4])
 
 
 ggplot(data = counts_shed_comm, 
@@ -379,11 +385,11 @@ summary(lm4)
 n_prior <- length(which(counts_shed_street$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_street$after_june2020 == TRUE))
 
-y1 <- lm4$coefficients[1] +90
-y2 <- lm4$coefficients[1] + n_prior*lm4$coefficients[2] +90
+y1 <- lm4$coefficients[1] + hold*lm4$coefficients[2]
+y2 <- y1 + n_prior*lm4$coefficients[2]
 
-y3 = lm4$coefficients[1] + (n_prior+30)*(lm4$coefficients[2]+lm4$coefficients[4]) + lm4$coefficients[3] -565
-y4 = lm4$coefficients[1] + (n_prior+30+n_post)*(lm4$coefficients[2]+lm4$coefficients[4]) + lm4$coefficients[3] -565
+y3 = y2 + (hold+n_prior+30)*lm4$coefficients[4] + lm4$coefficients[3]
+y4 = y3 + n_post*(lm4$coefficients[2] + lm4$coefficients[4])
 
 
 ggplot(data = counts_shed_street, 
@@ -418,11 +424,11 @@ summary(lm5)
 n_prior <- length(which(counts_shed_rodent$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_rodent$after_june2020 == TRUE))
 
-y1 <- lm5$coefficients[1] +8
-y2 <- lm5$coefficients[1] + n_prior*lm5$coefficients[2] +8
+y1 <- lm5$coefficients[1] + hold*lm5$coefficients[2]
+y2 <- y1 + n_prior*lm5$coefficients[2]
 
-y3 = lm5$coefficients[1] + (n_prior+30)*(lm5$coefficients[2]+lm5$coefficients[4]) + lm5$coefficients[3] +51
-y4 = lm5$coefficients[1] + (n_prior+30+n_post)*(lm5$coefficients[2]+lm5$coefficients[4]) + lm5$coefficients[3] +51
+y3 = y2 + (hold+n_prior+30)*lm5$coefficients[4] + lm5$coefficients[3]
+y4 = y3 + n_post*(lm5$coefficients[2] + lm5$coefficients[4])
 
 
 ggplot(data = counts_shed_rodent, 
@@ -459,11 +465,11 @@ summary(lm6)
 n_prior <- length(which(counts_shed_parking$after_june2020 == FALSE))
 n_post <- length(which(counts_shed_parking$after_june2020 == TRUE))
 
-y1 <- lm6$coefficients[1] +1750
-y2 <- lm6$coefficients[1] + n_prior*lm6$coefficients[2] +1750
+y1 <- lm6$coefficients[1] + hold*lm6$coefficients[2]
+y2 <- y1 + n_prior*lm6$coefficients[2]
 
-y3 = lm6$coefficients[1] + (n_prior+30)*(lm6$coefficients[2] + lm6$coefficients[4]) + lm6$coefficients[3] +13650
-y4 = lm6$coefficients[1] + (n_prior+30+n_post)*(lm6$coefficients[2] + lm6$coefficients[4]) + lm6$coefficients[3] +13650
+y3 = y2 + (hold+n_prior+30)*lm6$coefficients[4] + lm6$coefficients[3]
+y4 = y3 + n_post*(lm6$coefficients[2] + lm6$coefficients[4])
 
 
 ggplot(data = counts_shed_parking, 
